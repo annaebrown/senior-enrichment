@@ -20,7 +20,7 @@ require('./models')
 
 // sync the db, creating it if necessary
 function sync(force=false, retries=0, maxRetries=5) {
-  return db.sync({force: true}) //I know this is set to false in the boilerplate code, but my databases were not updating without doing this.
+  return db.sync({force: false}) //I know this is set to false in the boilerplate code, but my databases were not updating without doing this.
   .then(ok => console.log(`Synced models to db ${connectionString}`))
   .catch(fail => {
     // Don't do this auto-create nonsense in prod, or

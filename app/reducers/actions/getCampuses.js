@@ -1,11 +1,7 @@
 import axios from 'axios';
-// import {connect} from 'react-redux';
-// import campuses from '../components/campuses'
-//don't forget to import campus component here
 
-import {
-	REQUEST_CAMPUSES from './constants'
-}
+import {REQUEST_CAMPUSES} from './constants'
+
 
 //action-creator: function that returns an action that changes the state
 
@@ -16,29 +12,14 @@ export function receiveCampuses(campuses) {
 	}
 }
 
-//loading campuses from the server
+//async action creator
 
-export function gettingAllCampuses() {
+export function gettingAllCampuses () {
 	return axios.get('/api/campuses')
-		.then(res => {
-			dispatch(receieveCampuses(res.data))
+		.then(res => res.data)
+		.then(campuses => {
+			return dispatch => {
+				dispatch(receiveCampuses(campuses))
+			}
 		})
 }
-// const mapStateToProps = state => {
-// 	return {
-// 		campuses: state.campuses
-// 	}
-// }
-
-// const mapDispatchToProps = dispatch => {
-// 	return {
-// 		dispatch => {
-// 			axios.get('/api/campuses')
-// 			.then(response => {
-// 				dispatch(loadAllCampuses(response.data))
-// 			})
-// 		}
-// 	}
-// }
-
-// export default connect(mapStateToProps, mapDispatchToProps)(//campus component)

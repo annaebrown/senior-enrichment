@@ -1,9 +1,12 @@
 import React from 'react';
 
 export default (props) => {
-
-  return (<div>
-  	Hello
-  </div>)
+  
+  console.log(props.campuses)
+  return (
+	  <ul>
+	  	<li>Whasup</li>
+	  </ul>
+  )
 
 }

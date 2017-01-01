@@ -1,6 +1,10 @@
 import {RECEIVE_CAMPUSES} from './actions/constants'
 
-export default (state = [], action) => {
+const initialState = {
+	campuses: []
+}
+
+export default (state = initialState, action) => {
 
 	const newState = Object.assign({}, state);
 
