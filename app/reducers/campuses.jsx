@@ -1,6 +1,6 @@
 import {RECEIVE_CAMPUSES} from './actions/constants'
 
-const initialState = {
+let initialState = {
 	campuses: []
 }
 

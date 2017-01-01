@@ -5,10 +5,10 @@ import {REQUEST_CAMPUSES} from './constants'
 
 //action-creator: function that returns an action that changes the state
 
-export function receiveCampuses(campuses) {
+export function loadCampuses(campuses) {
 	return {
 		type: REQUEST_CAMPUSES,
-		campuses
+		campuses 
 	}
 }
 
@@ -19,7 +19,7 @@ export function gettingAllCampuses () {
 		.then(res => res.data)
 		.then(campuses => {
 			return dispatch => {
-				dispatch(receiveCampuses(campuses))
+				dispatch(loadCampuses(campuses))
 			}
 		})
 }
